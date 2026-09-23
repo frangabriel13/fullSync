@@ -1,0 +1,43 @@
+:root {
+  /* Colores */
+  --color-primary: #5b3df5;
+  --color-primary-dark: #4527d9;
+  --color-primary-soft: #efecfe;
+  --color-secondary: #2f6bff;
+  --color-navy: #0c1045;
+  --color-navy-light: #1a1f5c;
+  --color-text: #1c1f3a;
+  --color-text-muted: #5f6480;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f5f6fb;
+  --color-border: #e6e8f2;
+  --color-white: #ffffff;
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+
+  /* Tipografía */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  --fs-3xl: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem);
+
+  /* Espaciados y layout */
+  --container-width: 1200px;
+  --container-padding: 1.25rem;
+  --section-padding: clamp(4rem, 3rem + 4vw, 6.5rem);
+  --header-height: 72px;
+
+  /* Bordes y sombras */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  --shadow-sm: 0 2px 8px rgba(12, 16, 69, 0.06);
+  --shadow-md: 0 12px 32px rgba(12, 16, 69, 0.08);
+  --shadow-lg: 0 24px 60px rgba(12, 16, 69, 0.14);
+
+  --transition: 0.25s ease;
+}

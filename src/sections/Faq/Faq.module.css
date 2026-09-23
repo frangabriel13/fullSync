@@ -1,0 +1,18 @@
+.faq {
+  padding-block: var(--section-padding);
+  background-color: var(--color-bg-soft);
+}
+
+.grid {
+  display: grid;
+  gap: 0.875rem;
+  align-items: start;
+  margin-top: 3.5rem;
+}
+
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}

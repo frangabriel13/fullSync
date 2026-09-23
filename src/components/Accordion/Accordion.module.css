@@ -1,0 +1,64 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.item {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.open {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.1rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-primary);
+  transition: transform var(--transition);
+}
+
+.open .icon {
+  transform: rotate(180deg);
+}
+
+/* Animación de altura con grid: 0fr (cerrado) → 1fr (abierto) */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition);
+}
+
+.open .panel {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.panelInner p {
+  padding: 0 1.25rem 1.25rem;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
