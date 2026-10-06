@@ -1,3 +1,4 @@
+import { LuMessageCircle } from 'react-icons/lu'
 import Accordion from '../../components/Accordion/Accordion'
 import Container from '../../components/Container/Container'
 import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
@@ -9,7 +10,26 @@ function About() {
   return (
     <section id="nosotros" className={styles.about}>
       <Container className={styles.grid}>
-        <ImagePlaceholder label="Imagen del equipo" className={styles.image} />
+        <div className={styles.team}>
+          <ul className={styles.members}>
+            {about.team.map(({ name, role }) => (
+              <li key={name} className={styles.member}>
+                <ImagePlaceholder label={`Foto de ${name}`} className={styles.photo} />
+                <div className={styles.badge}>
+                  <h3 className={styles.name}>{name}</h3>
+                  <p className={styles.role}>{role}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <p className={styles.note}>
+            <span className={styles.noteIcon}>
+              <LuMessageCircle aria-hidden="true" />
+            </span>
+            {about.teamNote}
+          </p>
+        </div>
 
         <div className={styles.content}>
           <SectionHeading

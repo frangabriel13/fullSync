@@ -44,11 +44,20 @@ function Clients() {
 
           <ul ref={trackRef} className={styles.track}>
             {projects.map((project) => (
-              <li key={project.title} className={styles.project}>
-                <ImagePlaceholder label={project.title} className={styles.projectImage} />
+              <li key={project.client} className={styles.project}>
+                <div className={styles.browser}>
+                  <div className={styles.browserBar} aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                    <span className={styles.address} />
+                  </div>
+                  <ImagePlaceholder label={project.client} className={styles.projectImage} />
+                </div>
+
                 <div className={styles.projectInfo}>
-                  <h3>{project.title}</h3>
-                  <span>{project.category}</span>
+                  <h3>{project.client}</h3>
+                  <p>{project.description}</p>
                 </div>
               </li>
             ))}
