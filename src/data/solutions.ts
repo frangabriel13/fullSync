@@ -60,11 +60,35 @@ export const solutions = [
   },
 ]
 
-export const reasons = [
-  'Respuesta rápida y soporte continuo',
-  'Equipo certificado y especializado',
-  'Soluciones escalables a tu medida',
-  'Seguridad en cada etapa',
-  'Precios claros, sin sorpresas',
-  'Acompañamiento a largo plazo',
-]
+export const whyUs = {
+  eyebrow: 'Por qué elegirnos',
+  title: 'Una solución para cada etapa de tu negocio',
+  description:
+    'Hablás directo con quienes desarrollan tu proyecto, con precios claros y sin sorpresas.',
+  cards: [
+    {
+      title: 'Landing pages y sitios web',
+      description: 'Ideal para presentar tu negocio y empezar a recibir clientes.',
+      reasons: [
+        'Tu landing online desde 24 h',
+        'Diseño moderno y adaptado a celulares',
+        'Optimizada para aparecer en Google',
+        'Logo e imágenes, si los necesitás',
+      ],
+      cta: 'Quiero mi web',
+      dark: false,
+    },
+    {
+      title: 'Software a medida',
+      description: 'Para empresas que necesitan sistemas adaptados a sus procesos.',
+      reasons: [
+        'Análisis de tus procesos antes de desarrollar',
+        'Avances constantes durante el proyecto',
+        'Código y datos 100% tuyos',
+        'Acompañamiento después de la entrega',
+      ],
+      cta: 'Pedí tu presupuesto',
+      dark: true,
+    },
+  ],
+}
