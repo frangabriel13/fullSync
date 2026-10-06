@@ -76,7 +76,7 @@ export const whyUs = {
         'Diseño moderno y adaptado a celulares',
         'Optimizado para aparecer en Google',
         'Integración de redes sociales',
-        'Hosting incluído el primer año',
+        'Hosting incluido los primeros 3 meses',
       ],
       cta: 'Quiero mi web',
       dark: false,

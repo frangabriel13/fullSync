@@ -1,7 +1,8 @@
 import Accordion from '../../components/Accordion/Accordion'
+import Button from '../../components/Button/Button'
 import Container from '../../components/Container/Container'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
-import { faqs } from '../../data/faq'
+import { faqCta, faqHeading, faqs } from '../../data/faq'
 import styles from './Faq.module.css'
 
 // Se dividen las preguntas en dos columnas independientes.
@@ -12,16 +13,17 @@ function Faq() {
   return (
     <section id="preguntas" className={styles.faq}>
       <Container>
-        <SectionHeading
-          eyebrow="Preguntas frecuentes"
-          title="Resolvemos tus dudas"
-          description="Si no encontrás la respuesta que buscás, escribinos y te respondemos a la brevedad."
-        />
+        <SectionHeading {...faqHeading} />
 
         <div className={styles.grid}>
           {columns.map((items, index) => (
             <Accordion key={index} items={items} defaultOpen={index === 0 ? 0 : null} />
           ))}
+        </div>
+
+        <div className={styles.cta}>
+          <p>{faqCta.text}</p>
+          <Button href="#contacto">{faqCta.button}</Button>
         </div>
       </Container>
     </section>
