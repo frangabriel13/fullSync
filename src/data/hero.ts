@@ -7,8 +7,8 @@ export const hero = {
 
 // TODO: ajustar con las cifras reales.
 export const stats = [
-  { value: '10+', label: 'Años de experiencia' },
-  { value: '150+', label: 'Clientes satisfechos' },
-  { value: '300+', label: 'Proyectos completados' },
+  { value: '5+', label: 'Años de experiencia' },
+  { value: '24h', label: 'Tu web en horas' },
+  { value: '100%', label: 'Desarrollo a medida' },
   { value: '24/7', label: 'Soporte y monitoreo' },
 ]
