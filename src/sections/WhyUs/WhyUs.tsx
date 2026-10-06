@@ -17,29 +17,53 @@ function WhyUs() {
         />
 
         <div className={styles.cards}>
-          {whyUs.cards.map(({ title, description, reasons, cta, dark }) => (
-            <article key={title} className={`${styles.card} ${dark ? styles.dark : ''}`}>
-              <div className={styles.header}>
-                <h3 className={styles.title}>{title}</h3>
-                <p className={styles.description}>{description}</p>
-              </div>
+          {whyUs.cards.map((card) => {
+            const { icon: Icon, title, description, reasons, cta, dark } = card
+            const currency = 'currency' in card ? card.currency : null
+            const badge = 'badge' in card ? card.badge : null
 
-              <ul className={styles.list}>
-                {reasons.map((reason) => (
-                  <li key={reason}>
-                    <span className={styles.check}>
-                      <LuCheck aria-hidden="true" />
-                    </span>
-                    {reason}
-                  </li>
-                ))}
-              </ul>
+            return (
+              <article key={title} className={`${styles.card} ${dark ? styles.dark : ''}`}>
+                {badge && <span className={styles.badge}>{badge}</span>}
 
-              <Button href="#contacto" variant={dark ? 'light' : 'primary'} className={styles.button}>
-                {cta}
-              </Button>
-            </article>
-          ))}
+                <div className={styles.header}>
+                  <span className={styles.icon}>
+                    <Icon aria-hidden="true" />
+                  </span>
+                  <h3 className={styles.title}>{title}</h3>
+                  <p className={styles.description}>{description}</p>
+                </div>
+
+                <div className={styles.price}>
+                  <span className={styles.priceLabel}>{card.priceLabel}</span>
+                  <p className={styles.priceValue}>
+                    {card.price}
+                    {currency && <span className={styles.currency}> {currency}</span>}
+                  </p>
+                  <span className={styles.priceNote}>{card.priceNote}</span>
+                </div>
+
+                <ul className={styles.list}>
+                  {reasons.map((reason) => (
+                    <li key={reason}>
+                      <span className={styles.check}>
+                        <LuCheck aria-hidden="true" />
+                      </span>
+                      {reason}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  href="#contacto"
+                  variant={dark ? 'light' : 'primary'}
+                  className={styles.button}
+                >
+                  {cta}
+                </Button>
+              </article>
+            )
+          })}
         </div>
       </Container>
     </section>

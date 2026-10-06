@@ -1,6 +1,7 @@
 import {
   LuCloud,
   LuCode,
+  LuGlobe,
   LuHeadset,
   LuLightbulb,
   LuPalette,
@@ -67,23 +68,31 @@ export const whyUs = {
     'Hablás directo con quienes desarrollan tu proyecto, con precios claros y sin sorpresas.',
   cards: [
     {
+      icon: LuGlobe,
       title: 'Sitios web',
       description: 'Ideal para presentar tu negocio y empezar a recibir clientes.',
+      priceLabel: 'Desde',
+      price: '$120.000',
+      currency: 'ARS',
+      priceNote: 'Pagás una sola vez, cuando el trabajo está terminado',
       reasons: [
-        'A partir de $120.000 ARS',
-        'Tu web lista hasta 24h',
-        'Paga cuando el trabajo esté hecho',
+        'Tu web lista en hasta 24 h',
         'Diseño moderno y adaptado a celulares',
         'Optimizado para aparecer en Google',
         'Integración de redes sociales',
-        'Hosting incluído el primer año',
+        'Hosting incluido los primeros 3 meses',
       ],
       cta: 'Quiero mi web',
       dark: false,
     },
     {
+      icon: LuCode,
+      badge: 'Para empresas',
       title: 'Software a medida',
       description: 'Para empresas que necesitan sistemas adaptados a sus procesos.',
+      priceLabel: 'Presupuesto',
+      price: 'A medida',
+      priceNote: 'Pagás por etapas, a medida que avanza el proyecto',
       reasons: [
         'Análisis de tus procesos antes de desarrollar',
         'Sistema web, mobile y/o escritorio',
