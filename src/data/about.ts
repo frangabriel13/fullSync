@@ -3,6 +3,12 @@ export const about = {
   title: 'Construimos relaciones basadas en la confianza',
   description:
     'Somos un equipo de profesionales apasionados por la tecnología. Acompañamos a empresas de todos los tamaños en su transformación digital, con soluciones confiables y un trato cercano.',
+  // TODO: reemplazar los placeholders por las fotos reales.
+  team: [
+    { name: 'Franco Mansilla', role: 'Cofundador · Desarrollo' },
+    { name: 'Fabio Mansilla', role: 'Cofundador · Estrategia' },
+  ],
+  teamNote: 'Hablás directo con nosotros',
   items: [
     {
       title: 'Nuestra historia',
