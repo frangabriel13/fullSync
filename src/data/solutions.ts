@@ -11,9 +11,9 @@ import {
 
 export const solutionsHeading = {
   eyebrow: 'Nuestras soluciones',
-  title: 'Servicios IT integrales para tu empresa',
+  title: 'Servicios IT para tu empresa',
   description:
-    'Desde tu landing page hasta sistemas a medida, cubrimos cada aspecto tecnológico de tu negocio.',
+    'Desde tu sitio web hasta sistemas a medida, cubrimos cada aspecto tecnológico de tu negocio.',
 }
 
 export const solutions = [
@@ -67,13 +67,16 @@ export const whyUs = {
     'Hablás directo con quienes desarrollan tu proyecto, con precios claros y sin sorpresas.',
   cards: [
     {
-      title: 'Landing pages y sitios web',
+      title: 'Sitios web',
       description: 'Ideal para presentar tu negocio y empezar a recibir clientes.',
       reasons: [
-        'Tu landing online desde 24 h',
+        'A partir de $120.000 ARS',
+        'Tu web lista hasta 24h',
+        'Paga cuando el trabajo esté hecho',
         'Diseño moderno y adaptado a celulares',
-        'Optimizada para aparecer en Google',
-        'Logo e imágenes, si los necesitás',
+        'Optimizado para aparecer en Google',
+        'Integración de redes sociales',
+        'Hosting incluído el primer año',
       ],
       cta: 'Quiero mi web',
       dark: false,
@@ -83,7 +86,9 @@ export const whyUs = {
       description: 'Para empresas que necesitan sistemas adaptados a sus procesos.',
       reasons: [
         'Análisis de tus procesos antes de desarrollar',
-        'Avances constantes durante el proyecto',
+        'Sistema web, mobile y/o escritorio',
+        'Entregas por etapas',
+        'Integración con tus herramientas',
         'Código y datos 100% tuyos',
         'Acompañamiento después de la entrega',
       ],
