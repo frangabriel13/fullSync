@@ -12,6 +12,9 @@
   --color-bg-soft: #f5f6fb;
   --color-border: #e6e8f2;
   --color-white: #ffffff;
+  --color-whatsapp: #25d366;
+  --color-error: #c62828;
+  --color-error-soft: #fdecec;
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 
   /* Tipografía */

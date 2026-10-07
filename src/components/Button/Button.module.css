@@ -47,3 +47,20 @@
 .light:hover {
   background-color: var(--color-primary-soft);
 }
+
+/* Borde blanco, para usar sobre fondos oscuros o fotos */
+.outlineLight {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.outlineLight:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}

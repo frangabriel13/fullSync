@@ -20,7 +20,9 @@ function Header() {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+    <header
+      className={`${styles.header} ${isScrolled || isMenuOpen ? styles.solid : ''}`}
+    >
       <Container className={styles.inner}>
         <Logo />
 

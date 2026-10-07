@@ -1,8 +1,10 @@
+import { FaWhatsapp } from 'react-icons/fa6'
 import Accordion from '../../components/Accordion/Accordion'
 import Button from '../../components/Button/Button'
 import Container from '../../components/Container/Container'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
 import { faqCta, faqHeading, faqs } from '../../data/faq'
+import { whatsappLink, whatsappMessages } from '../../data/site'
 import styles from './Faq.module.css'
 
 // Se dividen las preguntas en dos columnas independientes.
@@ -23,7 +25,15 @@ function Faq() {
 
         <div className={styles.cta}>
           <p>{faqCta.text}</p>
-          <Button href="#contacto">{faqCta.button}</Button>
+          <div className={styles.ctaButtons}>
+            <Button href={whatsappLink(whatsappMessages.faq)} external>
+              <FaWhatsapp aria-hidden="true" />
+              {faqCta.whatsapp}
+            </Button>
+            <Button href="#contacto" variant="outline">
+              {faqCta.button}
+            </Button>
+          </div>
         </div>
       </Container>
     </section>

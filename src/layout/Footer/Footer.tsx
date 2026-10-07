@@ -12,7 +12,7 @@ function Footer() {
       <Container>
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <Logo light />
+            <Logo />
             <p>
               Soluciones IT integrales para que tu empresa funcione sin interrupciones y
               crezca con tecnología confiable.

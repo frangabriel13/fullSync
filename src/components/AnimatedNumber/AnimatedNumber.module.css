@@ -1,0 +1,31 @@
+/* Dígitos de ancho fijo: el número no "baila" mientras cuenta */
+.number {
+  font-variant-numeric: tabular-nums;
+}
+
+.fadeIn {
+  display: inline-block;
+  animation: fade-in 0.9s ease-out 0.5s both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fadeIn {
+    animation: none;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

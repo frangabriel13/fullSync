@@ -8,6 +8,7 @@ export const faqHeading = {
 
 export const faqCta = {
   text: '¿Tenés otra pregunta?',
+  whatsapp: 'Escribinos por WhatsApp',
   button: 'Contactanos',
 }
 
