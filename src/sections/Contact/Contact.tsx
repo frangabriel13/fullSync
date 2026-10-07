@@ -4,6 +4,7 @@ import SectionHeading from '../../components/SectionHeading/SectionHeading'
 import { contactHeading } from '../../data/contact'
 import { contactInfo } from '../../data/site'
 import ContactForm from './ContactForm/ContactForm'
+import WhatsAppBanner from './WhatsAppBanner/WhatsAppBanner'
 import WhatsAppCard from './WhatsAppCard/WhatsAppCard'
 import styles from './Contact.module.css'
 
@@ -19,9 +20,22 @@ function Contact() {
       <Container>
         <div className={styles.card}>
           <div className={styles.info}>
-            <SectionHeading {...contactHeading} align="left" light />
+            <div className={styles.heading}>
+              <SectionHeading {...contactHeading} align="left" />
+            </div>
 
-            <WhatsAppCard />
+            {/* Solo en celular: separa la opción de WhatsApp del formulario */}
+            <p className={styles.separator} aria-hidden="true">
+              o
+            </p>
+
+            {/* Celular: franja compacta. Escritorio: tarjeta completa. */}
+            <div className={styles.whatsappMobile}>
+              <WhatsAppBanner />
+            </div>
+            <div className={styles.whatsapp}>
+              <WhatsAppCard />
+            </div>
 
             <ul className={styles.details}>
               {details.map(({ icon: Icon, label, value, href }) => {
@@ -52,7 +66,9 @@ function Contact() {
             </ul>
           </div>
 
-          <ContactForm />
+          <div className={styles.form}>
+            <ContactForm />
+          </div>
         </div>
       </Container>
     </section>

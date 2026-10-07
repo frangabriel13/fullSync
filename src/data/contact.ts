@@ -12,6 +12,9 @@ export const contactWhatsapp = {
   title: 'Escribinos por WhatsApp',
   description: `Contanos tu idea y te respondemos en el chat (${contactInfo.hours.toLowerCase()}).`,
   cta: 'Abrir chat',
+  // Versión compacta para celular (WhatsAppBanner)
+  bannerTitle: '¿Preferís WhatsApp?',
+  bannerDescription: 'Escribinos y te respondemos en el chat',
 }
 
 // Límites de cada campo: se usan en la validación y en el atributo maxLength.

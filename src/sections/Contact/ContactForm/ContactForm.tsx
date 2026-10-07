@@ -114,7 +114,8 @@ function ContactForm() {
         />
       </div>
 
-      <div className={styles.row}>
+      {/* Campos opcionales: en celular se ocultan para acortar el formulario */}
+      <div className={`${styles.row} ${styles.optionalRow}`}>
         <FormField
           {...fieldProps('phone')}
           optionalLabel={contactForm.optional}

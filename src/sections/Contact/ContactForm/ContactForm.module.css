@@ -1,13 +1,13 @@
+/* En celular el formulario va directo sobre el fondo, sin tarjeta */
 .form {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
-  border-radius: var(--radius-md);
-  background-color: var(--color-white);
 }
 
+/* En celular el formulario es lo primero: no hace falta el "O dejanos un mensaje" */
 .title {
+  display: none;
   font-size: var(--fs-xl);
 }
 
@@ -17,8 +17,12 @@
   align-items: start;
 }
 
+.row.optionalRow {
+  display: none;
+}
+
 .submit {
-  align-self: flex-start;
+  align-self: stretch;
 }
 
 .success,
@@ -51,5 +55,25 @@
 @media (min-width: 576px) {
   .row {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .form {
+    padding: 2.5rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+  }
+
+  .title {
+    display: block;
+  }
+
+  .row.optionalRow {
+    display: grid;
+  }
+
+  .submit {
+    align-self: flex-start;
   }
 }

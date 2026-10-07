@@ -1,0 +1,50 @@
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.18), transparent 50%),
+    var(--gradient-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition);
+}
+
+.banner:active {
+  transform: scale(0.98);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-whatsapp);
+  font-size: 1.4rem;
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.text strong {
+  font-size: var(--fs-base);
+  font-weight: 700;
+}
+
+.text span {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--fs-xs);
+}
+
+.arrow {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
