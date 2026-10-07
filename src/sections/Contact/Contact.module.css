@@ -2,27 +2,58 @@
   padding-block: var(--section-padding);
 }
 
+/* Celular y tablet: sin tarjeta, sobre fondo blanco.
+   Orden: título, WhatsApp, separador "o", formulario y datos.
+   `.info` usa display: contents para poder reordenar sus hijos junto al formulario. */
 .card {
-  display: grid;
-  gap: 2.5rem;
-  padding: clamp(1.5rem, 1rem + 3vw, 3.5rem);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.15), transparent 40%),
-    var(--gradient-primary);
-  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
 
 .info {
+  display: contents;
+}
+
+.heading {
+  order: 1;
+}
+
+.form {
+  order: 4;
+}
+
+.separator {
+  order: 3;
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.whatsappMobile {
+  order: 2;
+}
+
+.whatsapp {
+  display: none;
 }
 
 .details {
+  order: 5;
   display: grid;
   gap: 1rem;
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
 .details li {
@@ -55,20 +86,76 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: var(--radius-md);
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
   font-size: 1.2rem;
 }
 
 .detailLabel {
   font-size: var(--fs-xs);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-text-muted);
 }
 
+/* Escritorio: tarjeta en degradado con la info a la izquierda y el formulario a la derecha */
 @media (min-width: 992px) {
   .card {
+    display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 3.5rem;
     align-items: center;
+    padding: 3.5rem;
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.15), transparent 40%),
+      var(--gradient-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .separator,
+  .whatsappMobile {
+    display: none;
+  }
+
+  .whatsapp {
+    display: block;
+  }
+
+  /* El orden de celular no aplica: vuelve el orden natural del HTML */
+  .heading,
+  .details {
+    order: 0;
+  }
+
+  /* Encabezado en blanco sobre el degradado */
+  .heading span {
+    color: var(--color-primary-soft);
+  }
+
+  .heading h2 {
+    color: var(--color-white);
+  }
+
+  .heading p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .details {
+    color: var(--color-white);
+  }
+
+  .detailIcon {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+  }
+
+  .detailLabel {
+    color: rgba(255, 255, 255, 0.75);
   }
 }
