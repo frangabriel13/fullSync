@@ -3,6 +3,7 @@ export const hero = {
   title: 'Tecnología que impulsa el crecimiento de tu negocio',
   description:
     'Diseñamos, implementamos y mantenemos la infraestructura tecnológica de tu empresa para que vos te enfoques en lo que mejor sabés hacer.',
+  imageAlt: 'Equipo trabajando en una oficina frente a monitores con un panel de gestión',
 }
 
 // TODO: ajustar con las cifras reales.

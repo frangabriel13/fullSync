@@ -1,17 +1,11 @@
-import { LuRefreshCw } from 'react-icons/lu'
+import logo from '../../assets/logo.png'
 import styles from './Logo.module.css'
 
-type LogoProps = {
-  light?: boolean
-}
-
-function Logo({ light = false }: LogoProps) {
+// El logo tiene "FULL" en blanco: está pensado para fondos oscuros.
+function Logo() {
   return (
-    <a href="#inicio" className={`${styles.logo} ${light ? styles.light : ''}`} aria-label="FullSync, ir al inicio">
-      <span className={styles.mark}>
-        <LuRefreshCw aria-hidden="true" />
-      </span>
-      FullSync
+    <a href="#inicio" className={styles.logo} aria-label="FullSync, ir al inicio">
+      <img src={logo} alt="" className={styles.image} />
     </a>
   )
 }

@@ -3,7 +3,7 @@ import styles from './Button.module.css'
 
 type ButtonProps = {
   children: ReactNode
-  variant?: 'primary' | 'outline' | 'light'
+  variant?: 'primary' | 'outline' | 'light' | 'outlineLight'
   href?: string
   type?: 'button' | 'submit'
   className?: string

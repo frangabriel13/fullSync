@@ -1,24 +1,18 @@
 .logo {
   display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: var(--fs-xl);
-  font-weight: 800;
-  color: var(--color-navy);
-  letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
-.mark {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: var(--radius-sm);
-  background: var(--gradient-primary);
-  color: var(--color-white);
-  font-size: 1.1rem;
+/* El PNG tiene mucho margen transparente: se recorta con object-fit
+   para que el logo ocupe el alto disponible. */
+.image {
+  width: 9.5rem;
+  aspect-ratio: 5 / 1;
+  object-fit: cover;
 }
 
-.light {
-  color: var(--color-white);
+@media (min-width: 992px) {
+  .image {
+    width: 11rem;
+  }
 }
