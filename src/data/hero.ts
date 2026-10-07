@@ -11,5 +11,6 @@ export const stats = [
   { value: '5+', label: 'Años de experiencia' },
   { value: '24h', label: 'Tu web en horas' },
   { value: '100%', label: 'Desarrollo a medida' },
-  { value: '24/7', label: 'Soporte y monitoreo' },
+  // En celular se oculta para que las otras tres entren en una sola fila.
+  { value: '24/7', label: 'Soporte y monitoreo', hideOnMobile: true },
 ]

@@ -14,9 +14,9 @@ import styles from './ContactForm.module.css'
 type Field = keyof ContactValues
 type Status = 'idle' | 'sending' | 'sent' | 'invalid'
 
-const initialValues: ContactValues = { name: '', phone: '', message: '', company: '' }
+const initialValues: ContactValues = { name: '', email: '', phone: '', company: '', message: '' }
 // Orden de los campos en pantalla: se usa para enfocar el primer error.
-const fieldOrder: Field[] = ['name', 'phone', 'message', 'company']
+const fieldOrder: Field[] = ['name', 'email', 'phone', 'company', 'message']
 const fieldId = (field: Field) => `contact-${field}`
 
 function ContactForm() {
@@ -56,7 +56,7 @@ function ContactForm() {
 
     const formErrors = validateContact(values)
     setErrors(formErrors)
-    setTouched({ name: true, phone: true, message: true, company: true })
+    setTouched({ name: true, email: true, phone: true, company: true, message: true })
 
     const firstInvalid = fieldOrder.find((field) => formErrors[field])
     if (firstInvalid) {
@@ -87,7 +87,16 @@ function ContactForm() {
   })
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} noValidate>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}
+      noValidate
+      aria-labelledby="contact-form-title"
+    >
+      <h3 id="contact-form-title" className={styles.title}>
+        {contactForm.title}
+      </h3>
+
       <div className={styles.row}>
         <FormField
           {...fieldProps('name')}
@@ -96,12 +105,29 @@ function ContactForm() {
           required
         />
         <FormField
+          {...fieldProps('email')}
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          maxLength={contactLimits.email.max}
+          required
+        />
+      </div>
+
+      <div className={styles.row}>
+        <FormField
           {...fieldProps('phone')}
+          optionalLabel={contactForm.optional}
           type="tel"
           inputMode="tel"
           autoComplete="tel"
           maxLength={contactLimits.phone.max}
-          required
+        />
+        <FormField
+          {...fieldProps('company')}
+          optionalLabel={contactForm.optional}
+          autoComplete="organization"
+          maxLength={contactLimits.company.max}
         />
       </div>
 
@@ -111,13 +137,6 @@ function ContactForm() {
         maxLength={contactLimits.message.max}
         required
         hint={`${values.message.length}/${contactLimits.message.max}`}
-      />
-
-      <FormField
-        {...fieldProps('company')}
-        optionalLabel={contactForm.optional}
-        autoComplete="organization"
-        maxLength={contactLimits.company.max}
       />
 
       <div className={styles.honeypot} aria-hidden="true">

@@ -18,10 +18,10 @@ function Hero() {
           <h1 className={styles.title}>{hero.title}</h1>
           <p className={styles.description}>{hero.description}</p>
           <div className={styles.actions}>
-            <Button href="#contacto">
+            <Button href="#contacto" className={styles.action}>
               Hablemos <LuArrowRight aria-hidden="true" />
             </Button>
-            <Button href="#soluciones" variant="outlineLight">
+            <Button href="#soluciones" variant="outlineLight" className={styles.action}>
               Ver soluciones
             </Button>
           </div>
@@ -29,7 +29,10 @@ function Hero() {
 
         <ul className={styles.stats}>
           {stats.map((stat) => (
-            <li key={stat.label} className={styles.stat}>
+            <li
+              key={stat.label}
+              className={`${styles.stat} ${stat.hideOnMobile ? styles.desktopOnly : ''}`}
+            >
               <strong>
                 <AnimatedNumber value={stat.value} />
               </strong>

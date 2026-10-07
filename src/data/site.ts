@@ -10,18 +10,19 @@ export const navLinks = [
 
 // TODO: reemplazar por los datos reales de la empresa.
 export const contactInfo = {
-  phone: '+54 11 1234-5678',
+  phone: '+54 9 11 7896-3032',
   email: 'contacto@fullsync.com',
   address: 'Buenos Aires, Argentina',
   hours: 'Lunes a viernes, 9 a 18 h',
   // Formato internacional sin "+", espacios ni el 15 (ej. 5491112345678).
-  whatsapp: '5491112345678',
+  whatsapp: '5491178963032',
 }
 
 // Mensajes precargados para saber desde qué botón nos escriben.
 export const whatsappMessages = {
   general: 'Hola, quiero hacer una consulta.',
   faq: 'Hola, tengo una pregunta.',
+  contact: 'Hola, vengo de la web y quiero hacer una consulta.',
 }
 
 export function whatsappLink(message?: string) {
