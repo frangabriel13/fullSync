@@ -32,6 +32,17 @@
   gap: 1rem;
 }
 
+.detailLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: opacity var(--transition);
+}
+
+.detailLink:hover {
+  opacity: 0.85;
+}
+
 .details li div {
   display: flex;
   flex-direction: column;

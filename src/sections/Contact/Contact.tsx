@@ -1,14 +1,20 @@
 import { useState, type FormEvent } from 'react'
-import { LuClock, LuMail, LuMapPin, LuPhone, LuSend } from 'react-icons/lu'
+import { FaWhatsapp } from 'react-icons/fa6'
+import { LuClock, LuMail, LuMapPin, LuSend } from 'react-icons/lu'
 import Button from '../../components/Button/Button'
 import Container from '../../components/Container/Container'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
-import { contactInfo } from '../../data/site'
+import { contactInfo, whatsappLink, whatsappMessages } from '../../data/site'
 import styles from './Contact.module.css'
 
 const details = [
-  { icon: LuPhone, label: 'Teléfono', value: contactInfo.phone },
-  { icon: LuMail, label: 'Email', value: contactInfo.email },
+  {
+    icon: FaWhatsapp,
+    label: 'WhatsApp',
+    value: contactInfo.phone,
+    href: whatsappLink(whatsappMessages.general),
+  },
+  { icon: LuMail, label: 'Email', value: contactInfo.email, href: `mailto:${contactInfo.email}` },
   { icon: LuMapPin, label: 'Ubicación', value: contactInfo.address },
   { icon: LuClock, label: 'Horario', value: contactInfo.hours },
 ]
@@ -37,17 +43,38 @@ function Contact() {
             />
 
             <ul className={styles.details}>
-              {details.map(({ icon: Icon, label, value }) => (
-                <li key={label}>
-                  <span className={styles.detailIcon}>
-                    <Icon aria-hidden="true" />
-                  </span>
-                  <div>
-                    <span className={styles.detailLabel}>{label}</span>
-                    <span>{value}</span>
-                  </div>
-                </li>
-              ))}
+              {details.map(({ icon: Icon, label, value, href }) => {
+                const content = (
+                  <>
+                    <span className={styles.detailIcon}>
+                      <Icon aria-hidden="true" />
+                    </span>
+                    <div>
+                      <span className={styles.detailLabel}>{label}</span>
+                      <span>{value}</span>
+                    </div>
+                  </>
+                )
+
+                return (
+                  <li key={label}>
+                    {href ? (
+                      <a
+                        href={href}
+                        className={styles.detailLink}
+                        {...(href.startsWith('http') && {
+                          target: '_blank',
+                          rel: 'noopener noreferrer',
+                        })}
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      content
+                    )}
+                  </li>
+                )
+              })}
             </ul>
           </div>
 

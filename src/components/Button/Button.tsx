@@ -7,6 +7,7 @@ type ButtonProps = {
   href?: string
   type?: 'button' | 'submit'
   className?: string
+  external?: boolean
   onClick?: () => void
 }
 
@@ -16,13 +17,19 @@ function Button({
   href,
   type = 'button',
   className = '',
+  external = false,
   onClick,
 }: ButtonProps) {
   const classes = `${styles.button} ${styles[variant]} ${className}`
 
   if (href) {
     return (
-      <a href={href} className={classes} onClick={onClick}>
+      <a
+        href={href}
+        className={classes}
+        onClick={onClick}
+        {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
+      >
         {children}
       </a>
     )

@@ -32,7 +32,7 @@ Sitio web de **FullSync**, empresa de soluciones IT. Solo frontend, una única p
 
 ```
 src/
-  components/  piezas reutilizables (Button, Container, SectionHeading, Accordion, Logo, ImagePlaceholder)
+  components/  piezas reutilizables (Button, Container, SectionHeading, Accordion, Logo, ImagePlaceholder, WhatsAppButton)
   layout/      Header y Footer
   sections/    una carpeta por sección de la landing
   data/        todo el contenido (textos, listas, datos de contacto) en archivos .ts

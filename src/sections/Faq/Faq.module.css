@@ -20,6 +20,13 @@
   text-align: center;
 }
 
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
 .cta p {
   color: var(--color-navy);
   font-size: var(--fs-lg);
