@@ -52,7 +52,17 @@ function Clients() {
                     <span />
                     <span className={styles.address} />
                   </div>
-                  <ImagePlaceholder label={project.client} className={styles.projectImage} />
+                  {'image' in project ? (
+                    <img
+                      src={project.image}
+                      alt={`Captura del proyecto de ${project.client}`}
+                      className={`${styles.projectImage} ${styles.projectPhoto}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <ImagePlaceholder label={project.client} className={styles.projectImage} />
+                  )}
                 </div>
 
                 <div className={styles.projectInfo}>
@@ -81,9 +91,21 @@ function Clients() {
                 <LuQuote className={styles.quoteIcon} aria-hidden="true" />
                 <blockquote>{testimonial.quote}</blockquote>
                 <div className={styles.author}>
-                  <span className={styles.avatar} aria-hidden="true">
-                    {getInitials(testimonial.name)}
-                  </span>
+                  {'photo' in testimonial ? (
+                    <span className={styles.avatar} aria-hidden="true">
+                      <img
+                        src={testimonial.photo}
+                        alt=""
+                        className={styles.avatarPhoto}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                  ) : (
+                    <span className={styles.avatar} aria-hidden="true">
+                      {getInitials(testimonial.name)}
+                    </span>
+                  )}
                   <div>
                     <strong>{testimonial.name}</strong>
                     <span>{testimonial.role}</span>

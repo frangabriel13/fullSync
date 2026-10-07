@@ -1,7 +1,6 @@
 import { LuMessageCircle } from 'react-icons/lu'
 import Accordion from '../../components/Accordion/Accordion'
 import Container from '../../components/Container/Container'
-import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
 import { about } from '../../data/about'
 import styles from './About.module.css'
@@ -12,9 +11,15 @@ function About() {
       <Container className={styles.grid}>
         <div className={styles.team}>
           <ul className={styles.members}>
-            {about.team.map(({ name, role }) => (
+            {about.team.map(({ name, role, photo }) => (
               <li key={name} className={styles.member}>
-                <ImagePlaceholder label={`Foto de ${name}`} className={styles.photo} />
+                <img
+                  src={photo}
+                  alt={`Foto de ${name}`}
+                  className={styles.photo}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className={styles.badge}>
                   <h3 className={styles.name}>{name}</h3>
                   <p className={styles.role}>{role}</p>

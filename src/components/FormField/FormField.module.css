@@ -1,0 +1,65 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  color: var(--color-navy);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-soft);
+  font-weight: 400;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition);
+}
+
+textarea.control {
+  resize: vertical;
+}
+
+.control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: var(--color-white);
+}
+
+.invalid,
+.invalid:focus {
+  border-color: var(--color-error);
+  background-color: var(--color-error-soft);
+}
+
+.footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+/* El contador queda a la derecha aunque no haya error */
+.hint {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+}

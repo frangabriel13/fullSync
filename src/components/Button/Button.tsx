@@ -8,6 +8,7 @@ type ButtonProps = {
   type?: 'button' | 'submit'
   className?: string
   external?: boolean
+  disabled?: boolean
   onClick?: () => void
 }
 
@@ -18,6 +19,7 @@ function Button({
   type = 'button',
   className = '',
   external = false,
+  disabled = false,
   onClick,
 }: ButtonProps) {
   const classes = `${styles.button} ${styles[variant]} ${className}`
@@ -36,7 +38,7 @@ function Button({
   }
 
   return (
-    <button type={type} className={classes} onClick={onClick}>
+    <button type={type} className={classes} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   )

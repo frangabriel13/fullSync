@@ -1,4 +1,5 @@
 import { LuArrowRight } from 'react-icons/lu'
+import AnimatedNumber from '../../components/AnimatedNumber/AnimatedNumber'
 import Button from '../../components/Button/Button'
 import Container from '../../components/Container/Container'
 import portada from '../../assets/portada.png'
@@ -29,7 +30,9 @@ function Hero() {
         <ul className={styles.stats}>
           {stats.map((stat) => (
             <li key={stat.label} className={styles.stat}>
-              <strong>{stat.value}</strong>
+              <strong>
+                <AnimatedNumber value={stat.value} />
+              </strong>
               <span>{stat.label}</span>
             </li>
           ))}

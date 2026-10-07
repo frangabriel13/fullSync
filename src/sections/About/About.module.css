@@ -67,9 +67,16 @@
 }
 
 .photo {
+  display: block;
+  width: 100%;
   height: auto;
   aspect-ratio: 3 / 4;
+  object-fit: cover;
+  /* Encuadre un poco hacia arriba para que la cara nunca quede cortada */
+  object-position: center 20%;
   border: 6px solid var(--color-white);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-soft);
   box-shadow: var(--shadow-lg);
 }
 

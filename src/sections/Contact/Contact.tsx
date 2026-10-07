@@ -1,10 +1,10 @@
-import { useState, type FormEvent } from 'react'
 import { FaWhatsapp } from 'react-icons/fa6'
-import { LuClock, LuMail, LuMapPin, LuSend } from 'react-icons/lu'
-import Button from '../../components/Button/Button'
+import { LuClock, LuMail, LuMapPin } from 'react-icons/lu'
 import Container from '../../components/Container/Container'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
+import { contactHeading } from '../../data/contact'
 import { contactInfo, whatsappLink, whatsappMessages } from '../../data/site'
+import ContactForm from './ContactForm/ContactForm'
 import styles from './Contact.module.css'
 
 const details = [
@@ -20,27 +20,12 @@ const details = [
 ]
 
 function Contact() {
-  const [isSent, setIsSent] = useState(false)
-
-  // TODO: conectar con un servicio de envío (ej. EmailJS, Formspree o una API propia).
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    event.currentTarget.reset()
-    setIsSent(true)
-  }
-
   return (
     <section id="contacto" className={styles.contact}>
       <Container>
         <div className={styles.card}>
           <div className={styles.info}>
-            <SectionHeading
-              eyebrow="Contacto"
-              title="Hablemos de tu proyecto"
-              description="Contanos qué necesitás y te respondemos en menos de 24 horas hábiles."
-              align="left"
-              light
-            />
+            <SectionHeading {...contactHeading} align="left" light />
 
             <ul className={styles.details}>
               {details.map(({ icon: Icon, label, value, href }) => {
@@ -78,36 +63,7 @@ function Contact() {
             </ul>
           </div>
 
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.row}>
-              <label className={styles.field}>
-                Nombre
-                <input type="text" name="name" autoComplete="name" required />
-              </label>
-              <label className={styles.field}>
-                Email
-                <input type="email" name="email" autoComplete="email" required />
-              </label>
-            </div>
-            <label className={styles.field}>
-              Empresa <span className={styles.optional}>(opcional)</span>
-              <input type="text" name="company" autoComplete="organization" />
-            </label>
-            <label className={styles.field}>
-              Mensaje
-              <textarea name="message" rows={5} required />
-            </label>
-
-            <Button type="submit" className={styles.submit}>
-              Enviar mensaje <LuSend aria-hidden="true" />
-            </Button>
-
-            {isSent && (
-              <p className={styles.success} role="status">
-                ¡Gracias por escribirnos! Te vamos a contactar a la brevedad.
-              </p>
-            )}
-          </form>
+          <ContactForm />
         </div>
       </Container>
     </section>

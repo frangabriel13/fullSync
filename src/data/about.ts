@@ -1,12 +1,14 @@
+import fabioPhoto from '../assets/fabio.jpeg'
+import francoPhoto from '../assets/franco.jpeg'
+
 export const about = {
   eyebrow: 'Sobre nosotros',
   title: 'Construimos relaciones basadas en la confianza',
   description:
     'Somos un equipo de profesionales apasionados por la tecnología. Acompañamos a empresas de todos los tamaños en su transformación digital, con soluciones confiables y un trato cercano.',
-  // TODO: reemplazar los placeholders por las fotos reales.
   team: [
-    { name: 'Franco Mansilla', role: 'Cofundador · Desarrollo' },
-    { name: 'Fabio Mansilla', role: 'Cofundador · Estrategia' },
+    { name: 'Franco Mansilla', role: 'Cofundador · Desarrollo', photo: francoPhoto },
+    { name: 'Fabio Mansilla', role: 'Cofundador · Estrategia', photo: fabioPhoto },
   ],
   teamNote: 'Hablás directo con nosotros',
   items: [
