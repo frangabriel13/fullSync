@@ -20,9 +20,8 @@
 }
 
 .details {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  display: grid;
+  gap: 1rem;
   color: var(--color-white);
 }
 

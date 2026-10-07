@@ -2,6 +2,7 @@ import { contactForm, contactLimits } from '../../data/contact'
 
 export type ContactValues = {
   name: string
+  email: string
   phone: string
   company: string
   message: string
@@ -11,6 +12,8 @@ export type ContactErrors = Partial<Record<keyof ContactValues, string>>
 
 // Letras de cualquier idioma (incluye tildes y ñ), espacios, apóstrofes y guiones.
 const NAME_PATTERN = /^[\p{L}][\p{L}\s'’-]*$/u
+// Formato usuario@dominio.ext, sin espacios. Es el mismo criterio práctico que usan los navegadores.
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 // Dígitos con separadores habituales: +54 9 11 2345-6789, (011) 4567-8901, etc.
 const PHONE_PATTERN = /^\+?[\d\s()-]+$/
 
@@ -22,8 +25,16 @@ function validateName(value: string) {
   if (!NAME_PATTERN.test(value)) return errors.nameInvalid
 }
 
+function validateEmail(value: string) {
+  if (!value) return errors.emailRequired
+  if (value.length > contactLimits.email.max || !EMAIL_PATTERN.test(value)) {
+    return errors.emailInvalid
+  }
+}
+
+// Opcional: solo se valida si la persona lo completó.
 function validatePhone(value: string) {
-  if (!value) return errors.phoneRequired
+  if (!value) return
 
   const digits = value.replace(/\D/g, '').length
   const { minDigits, maxDigits } = contactLimits.phone
@@ -39,6 +50,7 @@ function validateMessage(value: string) {
 
 const validators: Partial<Record<keyof ContactValues, (value: string) => string | undefined>> = {
   name: validateName,
+  email: validateEmail,
   phone: validatePhone,
   message: validateMessage,
 }

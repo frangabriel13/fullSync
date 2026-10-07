@@ -28,10 +28,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 3rem;
-  min-height: 100vh;
-  min-height: 100svh;
-  padding-block: calc(var(--header-height) + 3rem) 2.5rem;
+  gap: 2.5rem;
+  padding-block: calc(var(--header-height) + 2rem) 2rem;
 }
 
 .content {
@@ -67,44 +65,93 @@
 
 .actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  align-self: stretch;
+  gap: 0.75rem;
   margin-top: 0.5rem;
+}
+
+/* En celular los dos botones comparten la fila en partes iguales */
+.action {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-inline: 1rem;
 }
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem 1.5rem;
-  padding: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 1.25rem 0.25rem;
   border-radius: var(--radius-lg);
   background-color: var(--color-navy);
   box-shadow: var(--shadow-lg);
 }
 
+/* En celular: tres datos en una fila, centrados y con el mismo ancho.
+   Todas las celdas tienen el mismo relleno y el divisor es una sombra interna,
+   así no le resta ancho a ninguna. */
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 0.2rem;
+  padding-inline: 0.5rem;
   color: rgba(255, 255, 255, 0.72);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.stat + .stat {
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.12);
 }
 
 .stat strong {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
   font-weight: 800;
   color: var(--color-white);
   line-height: 1.1;
 }
 
+.desktopOnly {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .actions {
+    align-self: flex-start;
+    gap: 1rem;
+  }
+
+  .action {
+    flex: 0 0 auto;
+    padding-inline: 1.75rem;
+  }
+}
+
 @media (min-width: 768px) {
   .stats {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 2rem;
+  }
+
+  .stat {
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding-inline: 0;
+    font-size: var(--fs-sm);
+    text-align: left;
   }
 
   .stat + .stat {
     padding-left: 1.5rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .stat strong {
+    font-size: var(--fs-2xl);
+  }
+
+  .desktopOnly {
+    display: flex;
   }
 }
 
@@ -115,8 +162,12 @@
       linear-gradient(90deg, rgba(12, 16, 69, 0.78) 0%, rgba(12, 16, 69, 0.5) 38%, transparent 64%);
   }
 
+  /* Solo en escritorio el hero ocupa todo el alto de la pantalla */
   .inner {
-    padding-top: calc(var(--header-height) + 4.5rem);
+    gap: 3rem;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-block: calc(var(--header-height) + 4.5rem) 2.5rem;
   }
 }
 
