@@ -3,6 +3,7 @@ import eternalImage from '../assets/projects/eternal.png'
 import fabricanteImage from '../assets/projects/fabricante.png'
 import fitnessImage from '../assets/projects/fitness.png'
 import iluminadaImage from '../assets/projects/iluminada.jpeg'
+import ayePhoto from '../assets/aye.jpeg'
 import piterPhoto from '../assets/piter.jpeg'
 
 // Capturas en 16:9 (1920×1080). Los proyectos sin `image` muestran un placeholder.
@@ -44,6 +45,9 @@ export const testimonials = [
       'Antes pagábamos distintas aplicaciones para cada cosa que necesitábamos. FullSync nos creó un sistema a medida con todo en un solo lugar: turnos, señas, caja y clientas. Además, desde que lo usamos, las reservas aumentaron muchísimo.',
     name: 'Ayelén Alderete',
     role: 'Dueña de Iluminada Estética',
+    photo: ayePhoto,
+    // Punto de la cara en la foto (en %), cuánto ampliar y cuánto girar (grados) para el avatar
+    photoFocus: { x: 51, y: 39, zoom: 1.9, rotate: 28 },
   },
   {
     quote:
@@ -51,5 +55,6 @@ export const testimonials = [
     name: 'Piter Zalazar',
     role: 'Fundador de Fabricante Directo',
     photo: piterPhoto,
+    photoFocus: { x: 53, y: 25, zoom: 2.2, rotate: 0 },
   },
 ]

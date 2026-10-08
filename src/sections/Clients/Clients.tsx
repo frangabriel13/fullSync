@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, type CSSProperties } from 'react'
 import { LuChevronLeft, LuChevronRight, LuQuote } from 'react-icons/lu'
 import Container from '../../components/Container/Container'
 import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
@@ -91,12 +91,20 @@ function Clients() {
                 <LuQuote className={styles.quoteIcon} aria-hidden="true" />
                 <blockquote>{testimonial.quote}</blockquote>
                 <div className={styles.author}>
-                  {'photo' in testimonial ? (
+                  {testimonial.photo ? (
                     <span className={styles.avatar} aria-hidden="true">
                       <img
                         src={testimonial.photo}
                         alt=""
                         className={styles.avatarPhoto}
+                        style={
+                          {
+                            '--focus-x': `${testimonial.photoFocus.x}%`,
+                            '--focus-y': `${testimonial.photoFocus.y}%`,
+                            '--zoom': testimonial.photoFocus.zoom,
+                            '--rotate': `${testimonial.photoFocus.rotate}deg`,
+                          } as CSSProperties
+                        }
                         loading="lazy"
                         decoding="async"
                       />
