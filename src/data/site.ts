@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa6'
+import { FaInstagram } from 'react-icons/fa6'
 
 export const navLinks = [
   { label: 'Soluciones', href: '#soluciones' },
@@ -8,7 +8,6 @@ export const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-// TODO: reemplazar por los datos reales de la empresa.
 export const contactInfo = {
   phone: '+54 9 11 7896-3032',
   email: 'contacto@fullsync.site',
@@ -31,7 +30,5 @@ export function whatsappLink(message?: string) {
 }
 
 export const socialLinks = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com', icon: FaLinkedinIn },
-  { label: 'Instagram', href: 'https://www.instagram.com', icon: FaInstagram },
-  { label: 'Facebook', href: 'https://www.facebook.com', icon: FaFacebookF },
+  { label: 'Instagram', href: 'https://www.instagram.com/fullsync.oficial/', icon: FaInstagram },
 ]
