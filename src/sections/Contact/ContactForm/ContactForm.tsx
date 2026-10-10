@@ -9,10 +9,11 @@ import {
   type ContactErrors,
   type ContactValues,
 } from '../validateContact'
+import { sendContactEmail } from '../../../services/sendContactEmail'
 import styles from './ContactForm.module.css'
 
 type Field = keyof ContactValues
-type Status = 'idle' | 'sending' | 'sent' | 'invalid'
+type Status = 'idle' | 'sending' | 'sent' | 'invalid' | 'error'
 
 const initialValues: ContactValues = { name: '', email: '', phone: '', company: '', message: '' }
 // Orden de los campos en pantalla: se usa para enfocar el primer error.
@@ -66,9 +67,15 @@ function ContactForm() {
     }
 
     setStatus('sending')
-    // TODO: conectar con un servicio de envío (ej. EmailJS, Formspree o una API propia)
-    // y mostrar un mensaje de error si falla.
-    await new Promise((resolve) => setTimeout(resolve, 600))
+
+    try {
+      await sendContactEmail(values)
+    } catch (error) {
+      console.error(error)
+      // Se conservan los datos para que la persona pueda reintentar sin volver a escribir
+      setStatus('error')
+      return
+    }
 
     setValues(initialValues)
     setErrors({})
@@ -160,6 +167,7 @@ function ContactForm() {
       <div aria-live="polite">
         {status === 'sent' && <p className={styles.success}>{contactForm.success}</p>}
         {status === 'invalid' && <p className={styles.invalid}>{contactForm.invalid}</p>}
+        {status === 'error' && <p className={styles.invalid}>{contactForm.error}</p>}
       </div>
     </form>
   )

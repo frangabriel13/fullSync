@@ -40,6 +40,7 @@ export const contactForm = {
   sending: 'Enviando…',
   success: '¡Gracias por escribirnos! Te vamos a contactar a la brevedad.',
   invalid: 'Revisá los campos marcados para poder enviar el mensaje.',
+  error: 'No pudimos enviar tu mensaje. Probá de nuevo en unos minutos o escribinos por WhatsApp.',
   errors: {
     nameRequired: 'Ingresá tu nombre.',
     nameShort: `El nombre tiene que tener al menos ${contactLimits.name.min} caracteres.`,

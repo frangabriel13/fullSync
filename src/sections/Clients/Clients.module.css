@@ -23,6 +23,19 @@
   display: none;
 }
 
+/* Arrastre con el mouse: mano para agarrar y, mientras se arrastra,
+   sin selección de texto (el "imán" lo desactiva el hook useCarousel) */
+@media (hover: hover) and (pointer: fine) {
+  .track {
+    cursor: grab;
+  }
+}
+
+.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
 .project {
   display: flex;
   flex-direction: column;
@@ -114,6 +127,45 @@
 .arrow:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+}
+
+/* Se ocultan cuando no hay más proyectos hacia ese lado */
+.arrow:disabled {
+  visibility: hidden;
+}
+
+/* Indicador de posición: el punto activo es una pastilla violeta */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.dot::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border);
+  transition:
+    width var(--transition),
+    background-color var(--transition);
+}
+
+.dot:hover::before {
+  background-color: var(--color-text-muted);
+}
+
+.dot[aria-current='true']::before {
+  width: 1.5rem;
+  background-color: var(--color-primary);
 }
 
 .prev {

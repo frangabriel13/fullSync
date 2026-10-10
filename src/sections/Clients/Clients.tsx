@@ -3,6 +3,7 @@ import { LuChevronLeft, LuChevronRight, LuQuote } from 'react-icons/lu'
 import Container from '../../components/Container/Container'
 import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
+import { useCarousel } from '../../hooks/useCarousel'
 import { projects, testimonials } from '../../data/clients'
 import styles from './Clients.module.css'
 
@@ -16,12 +17,8 @@ function getInitials(name: string) {
 
 function Clients() {
   const trackRef = useRef<HTMLUListElement>(null)
-
-  const scroll = (direction: 1 | -1) => {
-    const track = trackRef.current
-    if (!track) return
-    track.scrollBy({ left: direction * track.clientWidth * 0.8, behavior: 'smooth' })
-  }
+  const { activePage, pageCount, canPrev, canNext, isDragging, goToPage, prev, next } =
+    useCarousel(trackRef)
 
   return (
     <section id="clientes" className={styles.clients}>
@@ -37,12 +34,13 @@ function Clients() {
             type="button"
             className={`${styles.arrow} ${styles.prev}`}
             aria-label="Proyectos anteriores"
-            onClick={() => scroll(-1)}
+            onClick={prev}
+            disabled={!canPrev}
           >
             <LuChevronLeft aria-hidden="true" />
           </button>
 
-          <ul ref={trackRef} className={styles.track}>
+          <ul ref={trackRef} className={`${styles.track} ${isDragging ? styles.dragging : ''}`}>
             {projects.map((project) => (
               <li key={project.client} className={styles.project}>
                 <div className={styles.browser}>
@@ -59,6 +57,7 @@ function Clients() {
                       className={`${styles.projectImage} ${styles.projectPhoto}`}
                       loading="lazy"
                       decoding="async"
+                      draggable={false}
                     />
                   ) : (
                     <ImagePlaceholder label={project.client} className={styles.projectImage} />
@@ -77,11 +76,27 @@ function Clients() {
             type="button"
             className={`${styles.arrow} ${styles.next}`}
             aria-label="Proyectos siguientes"
-            onClick={() => scroll(1)}
+            onClick={next}
+            disabled={!canNext}
           >
             <LuChevronRight aria-hidden="true" />
           </button>
         </div>
+
+        {pageCount > 1 && (
+          <div className={styles.dots}>
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={styles.dot}
+                aria-label={`Ir a la página ${index + 1} de proyectos`}
+                aria-current={index === activePage ? 'true' : undefined}
+                onClick={() => goToPage(index)}
+              />
+            ))}
+          </div>
+        )}
 
         <div className={styles.testimonials}>
           <h3 className={styles.testimonialsTitle}>Lo que dicen nuestros clientes</h3>
