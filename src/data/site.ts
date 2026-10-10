@@ -11,7 +11,7 @@ export const navLinks = [
 // TODO: reemplazar por los datos reales de la empresa.
 export const contactInfo = {
   phone: '+54 9 11 7896-3032',
-  email: 'contacto@fullsync.com',
+  email: 'contacto@fullsync.site',
   address: 'Buenos Aires, Argentina',
   hours: 'Lunes a viernes, 9 a 18 h',
   // Formato internacional sin "+", espacios ni el 15 (ej. 5491112345678).

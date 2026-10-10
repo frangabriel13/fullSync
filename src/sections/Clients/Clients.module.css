@@ -23,6 +23,19 @@
   display: none;
 }
 
+/* Arrastre con el mouse: mano para agarrar y, mientras se arrastra,
+   sin selección de texto (el "imán" lo desactiva el hook useCarousel) */
+@media (hover: hover) and (pointer: fine) {
+  .track {
+    cursor: grab;
+  }
+}
+
+.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
 .project {
   display: flex;
   flex-direction: column;
@@ -116,6 +129,45 @@
   color: var(--color-white);
 }
 
+/* Se ocultan cuando no hay más proyectos hacia ese lado */
+.arrow:disabled {
+  visibility: hidden;
+}
+
+/* Indicador de posición: el punto activo es una pastilla violeta */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.dot::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border);
+  transition:
+    width var(--transition),
+    background-color var(--transition);
+}
+
+.dot:hover::before {
+  background-color: var(--color-text-muted);
+}
+
+.dot[aria-current='true']::before {
+  width: 1.5rem;
+  background-color: var(--color-primary);
+}
+
 .prev {
   left: -1.25rem;
 }
@@ -197,12 +249,16 @@
 }
 
 /* Foto real en lugar de las iniciales.
-   La foto es de medio cuerpo: se amplía y se desplaza para centrar la cara. */
+   Cada foto define en los datos dónde está la cara (--focus-x/y), cuánto ampliar (--zoom)
+   y si hay que enderezarla (--rotate):
+   se amplía alrededor de ese punto y se lo lleva al centro del círculo. */
 .avatarPhoto {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translate(-6%, 56%) scale(2.2);
+  transform-origin: var(--focus-x, 50%) var(--focus-y, 50%);
+  transform: translate(calc(50% - var(--focus-x, 50%)), calc(50% - var(--focus-y, 50%)))
+    scale(var(--zoom, 1)) rotate(var(--rotate, 0deg));
 }
 
 @media (min-width: 576px) {
