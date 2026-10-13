@@ -51,7 +51,7 @@ export const testimonials = [
   },
   {
     quote:
-      'Desarrollaron nuestra plataforma de venta mayorista completa: web y app para Android e iOS. Entendieron rápido cómo funciona el negocio y siempre estuvieron disponibles para cada cambio que necesitamos.',
+      'Desarrollaron nuestro sistema de venta mayorista completa: web y app para Android e iOS. Entendieron rápido cómo funciona el negocio y siempre estuvieron disponibles para cada cambio que necesitamos.',
     name: 'Piter Zalazar',
     role: 'Fundador de Fabricante Directo',
     photo: piterPhoto,
